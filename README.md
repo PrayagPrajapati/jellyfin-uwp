@@ -8,7 +8,7 @@ This is a wrapper around Jellyfin's web interface (see https://github.com/jellyf
 Steps to install Jellyfin-UWP: 
 1. Download and install latest visual studio app from here https://visualstudio.microsoft.com/downloads/
 2. Download this repo and extract it.
-3. open JellyfinUwp.sln in Visual Studio and left click on Jellyfin (Universal Windows) and go to Publish and click Create App Packages... and select sideloading and then select "Select from the store" and select the name of the certificate (If you created certificate by the step below without changing anything then its name should be JellyfinSigning) 
+3. open JellyfinUwp.sln in Visual Studio and left click on Jellyfin (Universal Windows) and go to Publish and click Create App Packages... and select sideloading and then select "Select from the store" and select the name of the certificate (If you created certificate by the step below without changing anything then its name should be JellyfinSigning). In some cases the certificate is already present.
 4. Select an output folder, in architecture select all and in Soulution Configration select "Release ($architecture$)" and click Create. Wait for some time.
 5. Open Developer settings and enable "Install apps from any source, including loose files"  
 6. Then go to the output folder and open AppPackages, Open Jellyfin_0.8.1.0_Test or any other name of the folder which has Jellyfin in it. Click on Add-AppDevPackage.ps1 and run it with powershell. Wait for some to let it install.
@@ -19,8 +19,8 @@ Creating a certificate : https://docs.microsoft.com/en-in/windows/msix/package/c
 
 Steps to create and install an certificate :
 1. Open powershell and type:
-     
-    New-SelfSignedCertificate -Type Custom -Subject "CN=Jellyfin-UWP, O=Jellyfin-UWP, C=IN" -KeyUsage DigitalSignature -FriendlyName "JellyfinSigning" -CertStoreLocation               "Cert:\CurrentUser\My" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}")
+        
+        New-SelfSignedCertificate -Type Custom -Subject "CN=Jellyfin-UWP, O=Jellyfin-UWP, C=IN" -KeyUsage DigitalSignature -FriendlyName "JellyfinSigning" CertStoreLocation  "Cert:\CurrentUser\My" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}")
 
 Change C=IN to your country location like for India type IN, for USA type US. You can change "JellyfinSigning" to anything else but don't change CN and O if don't know what you are doing.
 Hit enter.
