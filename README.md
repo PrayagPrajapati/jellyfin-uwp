@@ -1,7 +1,10 @@
 # Jellyfin UWP Client
 
-WARING : RELEASE 0.8.0 DOESN'T WORK WITH JELLYFIN 10.6 OR HIGHER.
+NOTE:TO USE JELLYFIN 10.6.X OF 10.5.X USE THIS FORMATE-
 
+```
+http://youripaddress:portnumber
+```
 
 This is a wrapper around Jellyfin's web interface (see https://github.com/jellyfin/jellyfin-web) for UWP devices (Windows 10 & Xbox One)
 
@@ -19,8 +22,12 @@ Creating a certificate : https://docs.microsoft.com/en-in/windows/msix/package/c
 
 Steps to create and install an certificate :
 1. Open powershell and type:
-        
-        New-SelfSignedCertificate -Type Custom -Subject "CN=Jellyfin-UWP, O=Jellyfin-UWP, C=IN" -KeyUsage DigitalSignature -FriendlyName "JellyfinSigning" CertStoreLocation  "Cert:\CurrentUser\My" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}")
+
+```
+New-SelfSignedCertificate -Type Custom -Subject "CN=Jellyfin-UWP, O=Jellyfin-UWP,
+C=IN" -KeyUsage DigitalSignature -FriendlyName "JellyfinSigning" CertStoreLocation 
+"Cert:\CurrentUser\My" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}")
+```
 
 Change C=IN to your country location like for India type IN, for USA type US. You can change "JellyfinSigning" to anything else but don't change CN and O if don't know what you are doing.
 Hit enter.
