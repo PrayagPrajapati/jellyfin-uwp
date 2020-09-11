@@ -1,6 +1,6 @@
 # Jellyfin UWP Client
 
-NOTE:TO USE JELLYFIN 10.6.X OF 10.5.X USE THIS FORMATE-
+NOTE : TO USE JELLYFIN 10.6.X OF 10.5.X USE THIS FORMATE-
 
 ```
 http://youripaddress:portnumber
